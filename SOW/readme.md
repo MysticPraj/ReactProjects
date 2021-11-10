@@ -1,6 +1,6 @@
 STATEMENT OF WORK 
 
-contributors       role                remarks 
+contributors
 
 Gaurav            
 Ishrad
