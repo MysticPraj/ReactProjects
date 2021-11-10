@@ -18,8 +18,12 @@ function Pychart() {
     labels: ["Active", "Warning", "Danger"],
     datasets: [
       {
-        label: "SOW",
-        data: [30, 12, 10],
+        label: "SOW tracker",
+        data: [
+          CompanyDataSet[0].length,
+          CompanyDataSet[1].length,
+          CompanyDataSet[2].length,
+        ],
         backgroundColor: [
           "rgb(10,132,10,0.5)",
           "rgb(255,165,0,0.5)",
@@ -68,18 +72,17 @@ function Pychart() {
         getElementAtEvent={getElementAtEvent}
         getDatasetAtEvent={getDatasetAtEvent}
         getElementsAtEvent={getElementsAtEvent}
-      />
-      <h5>
-        {" "}
-        {/* {selectedGraphElement &&
+      />{" "}
+      {/* {selectedGraphElement &&
           `selectedGraphElement : ${selectedGraphElement.index}`}{" "} */}
-      </h5>
-
-      { selectedGraphElement.index == '0' && "Active" || selectedGraphElement.index == '1' && "Warning" ||selectedGraphElement.index == '2' && "Danger" || '' } {selectedGraphElement&& ' - '}  {selectedGraphElement && CompanyDataSet[selectedGraphElement.index].length}
-
+      {(selectedGraphElement.index == "0" && "Active") ||
+        (selectedGraphElement.index == "1" && "Warning") ||
+        (selectedGraphElement.index == "2" && "Danger") ||
+        ""}{" "}
+      {selectedGraphElement && " - "}{" "}
+      {selectedGraphElement &&
+        CompanyDataSet[selectedGraphElement.index].length}
       {selectedGraphElement && <Table Company={companyData} />}
-
-
     </div>
   );
 }
